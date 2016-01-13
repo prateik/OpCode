@@ -135,6 +135,10 @@ public class BinarySearchTree {
 	
 	public static void main(String args[]){
 		
+		
+		
+		
+		
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.root = bst.addNode(10,bst.root);
 		bst.addNode(20,bst.root);
