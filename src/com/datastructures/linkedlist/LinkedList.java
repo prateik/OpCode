@@ -17,7 +17,7 @@ public class LinkedList {
 	Node head = null;
 	
 	
-	public void addNode(int data){
+	public Node addNode(int data){
 		
 		if(head == null){
 			head = new Node(data);
@@ -29,6 +29,26 @@ public class LinkedList {
 			temp.next = head;
 			head = temp;
 		}
+		
+		return head;
+		
+	}
+	
+	
+public Node addNode(Node node){
+		
+		if(head == null){
+			head = node;
+		
+		}
+		
+		else{
+			Node temp = node;
+			temp.next = head;
+			head = temp;
+		}
+		
+		return head;
 		
 	}
 	
