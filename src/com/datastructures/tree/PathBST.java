@@ -41,7 +41,7 @@ public class PathBST {
 			}
 			
 			System.out.println();
-			pathNodes.remove((Integer) (node.data));
+			//pathNodes.remove((Integer) (node.data));
 				
 			
 		}
@@ -54,6 +54,50 @@ public class PathBST {
 		return;
 	}
 	
+	
+	public static boolean hasPathSum2(Node node,int sum){
+	
+		// return true if we run out of tree and sum==0 
+		  if (node == null) { 
+		    return(sum == 0); 
+		  } 
+		  else { 
+		  // otherwise check both subtrees 
+		    int subSum = sum - node.data; 
+		    return(hasPathSum2(node.left, subSum) || hasPathSum2(node.right, subSum)); 
+		  } 
+	}
+	
+	public static void printPaths2(Node node, int[] path, int pathLen)
+	{
+		if (node==null) return;
+
+		  // append this node to the path array 
+		  path[pathLen] = node.data; 
+		  pathLen++;
+
+		  // it's a leaf, so print the path that led to here 
+		  if (node.left==null && node.right==null) { 
+		    printArray(path, pathLen); 
+		  } 
+		  else { 
+		  // otherwise try both subtrees 
+		    printPaths2(node.left, path, pathLen); 
+		    printPaths2(node.right, path, pathLen); 
+		  } 
+		
+	}
+	
+	/** 
+	 Utility that prints ints from an array on one line. 
+	*/ 
+	private static void printArray(int[] ints, int len) { 
+	  int i; 
+	  for (i=0; i<len; i++) { 
+	   System.out.print(ints[i] + " "); 
+	  } 
+	  System.out.println(); 
+	} 
 	
 public static void main(String args[]){
 		

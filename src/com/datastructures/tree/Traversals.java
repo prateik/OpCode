@@ -21,11 +21,9 @@ public class Traversals {
 		
 		if(node == null) return;
 		
+		postOrder(node.left);
 		
-		
-		preOrder(node.left);
-		
-		preOrder(node.right);
+		postOrder(node.right);
 		
 		System.out.print(node.data+" | ");
 		
@@ -36,11 +34,11 @@ public class Traversals {
 		
 		if(node == null) return;
 		
-		preOrder(node.left);
+		InOrder(node.left);
 		
 		System.out.print(node.data+" | ");
 		
-		preOrder(node.right);
+		InOrder(node.right);
 			
 	} 
 	
@@ -53,35 +51,58 @@ public class Traversals {
     	 List<Node> levelNodes = new ArrayList<Node>();
     	 Node temp = node;
     	 
-    	 System.out.println(" Level Nodes : "+temp.data);
-    	 
-    	 levelNodes.add(node.left);
-    	 levelNodes.add(node.right);
-    	 
-    	print(levelNodes);
+         levelNodes.add(temp);
     	
-    	levelNodes.removeAll(levelNodes);
-    	
-        
-    	 
+         while(!levelNodes.isEmpty())
+         {
+        	 System.out.print(" Level Nodes : ");
+        	 
+        	 for(Node levelNode:levelNodes){
+        		 System.out.print(levelNode.data+" | ");
+        	 }
+        	 
+        	 levelNodes = replacewithchildNodes(levelNodes);
+        	 System.out.println();
+         }
+ 
  	} 
-	
      
-     public static void print(List<Node> nodes){
+     public static List<Node> replacewithchildNodes(List<Node> levelNodes){
+      	
+    	 List<Node> nextlevelNodes = new ArrayList<Node>();
+    	 for(Node node:levelNodes){
     	 
-    	 for(Node node:nodes)
-    		 System.out.print(node.data+" | ");
-    	 
+         if(node.left!= null )nextlevelNodes.add(node.left);
+         if(node.right!= null )nextlevelNodes.add(node.right);
+    	 }
+    	 return nextlevelNodes;
      }
+     
+  
+     public static void inOrder2(Node node){
+    	 
+    	 
+    	 if(node == null) return;
+    	 
+    	 System.out.print(" N : "+node.data);
+    	 inOrder2(node.left);
+    	 inOrder2(node.right);
+     }
+   
      
 	public static void main(String args[]){
 		
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.root = bst.addNode(10,bst.root);
+		
 		bst.addNode(20,bst.root);
 		bst.addNode(5,bst.root);
 		bst.addNode(2,bst.root);
 		bst.addNode(40,bst.root);
+		bst.addNode(8,bst.root);
+		bst.addNode(15,bst.root);
+		bst.addNode(6,bst.root);
+		bst.addNode(9,bst.root);
 		bst.printTree(bst.root);
 		//bst.delete(5,bst.root);
 		//System.out.println(bst.search(225, bst.root));
@@ -95,6 +116,7 @@ public class Traversals {
 		InOrder(bst.root);
 		System.out.println();
 		levelOrder(bst.root);
+		inOrder2(bst.root);
 	}
 	
 	

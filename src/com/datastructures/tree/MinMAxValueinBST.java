@@ -29,7 +29,15 @@ public class MinMAxValueinBST {
 	}
 	
 	
-	
+	public static Node getMin(Node node)
+	{
+		if(node == null)return null;
+		
+		if(node.left!= null) return getMin(node.left);
+		
+		return node;
+		
+	}
 public static void main(String args[]){
 		
 	
@@ -48,6 +56,9 @@ public static void main(String args[]){
 		
 		
 		System.out.println((getMinimum(bst.root)).data);
+		
+		
+		System.out.println((getMin(bst.root)).data);
 		System.out.println((getMaximum(bst.root)).data);
 	}
 

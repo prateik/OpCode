@@ -2,19 +2,10 @@ package com.datastructures.linkedlist;
 
 
 
-class Node {
-	
-	int data;
-	Node next;
-	
-	
-	Node(int data){
-		this.data = data;
-	}
-}
+
 public class LinkedList {
 
-	Node head = null;
+	public Node head = null;
 	
 	
 	public Node addNode(int data){
