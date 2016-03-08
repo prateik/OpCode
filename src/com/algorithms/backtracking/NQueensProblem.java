@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /*
  *   columns stores the locations of queens where index is the row
- *   rasults stores a list of integer arrays of the solutions
+ *   results stores a list of integer arrays of the solutions
  */
 public class NQueensProblem {
 
@@ -40,15 +40,21 @@ public static int GRID_SIZE =4;
 	
 	public static void placeQueens(int row, Integer[] columns, ArrayList<Integer[]> results) {
 		if (row == GRID_SIZE) { // Found valid placement
+			//System.out.println("Adding Solution to results ");
 			results.add(columns.clone()); 
+			
 		} else {
 			for (int col = 0; col < GRID_SIZE; col++) {			
 				if (checkValid(columns, row, col)) {
 					columns[row] = col;	// Place queen
+					
+					printBoard(columns);
 					placeQueens(row + 1, columns, results);	
 				}		
 			}
 		}
+		
+		System.out.println("Backtracking!! Did not work for : "+row);
 	}
 	
 	public static void clear(Integer[] columns) {

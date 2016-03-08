@@ -25,6 +25,25 @@ public class BinarySearchTree {
 		root = new Node();
 	}
 	
+	
+	public Node addNode(Node newNode,Node node){
+		if(node == null){
+			return newNode;
+		}
+	
+		else if(newNode.data <= node.data)
+		{
+			node.left = addNode(newNode, node.left);
+		}
+		
+		else{
+			
+			node.right = addNode(newNode, node.right);
+		}
+		return node;
+	}
+	
+	
 	public Node addNode(int data,Node node){
 		if(node == null){
 			return new Node(data);

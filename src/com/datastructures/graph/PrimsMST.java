@@ -13,7 +13,15 @@ package com.datastructures.graph;
 public class PrimsMST {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
+		Graph<Integer> graph1 = new Graph<Integer>();
+		graph1.addVertex(1);
+		graph1.addVertex(2);
+		graph1.addVertex(3);
+		graph1.addVertex(4);
+        graph1.addEdge(1,2);
+        graph1.addEdge(2,4);
+		graph1.printGraph();
 
 	}
 
