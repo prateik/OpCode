@@ -80,7 +80,7 @@ public static String compress2(String text){
 	public static void main(String args[]){
 		
 		
-		System.out.println(compress2("abiiiii"));
+		System.out.println(compress2("abiiii"));
 		
 	}
 

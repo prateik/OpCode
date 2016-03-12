@@ -12,8 +12,21 @@ public class StringRotation {
 		return false;
 	}
 	
+	public static boolean isRotationUsingBuilder(String s1,String s2){
+		
+		StringBuilder text = new StringBuilder();
+		
+		text.append(s2);
+		text.append(s2);
+			
+		if(text.toString().contains(s1)) return true;
+		
+		return false;
+	}
+	
+	
 	public static void main(String args[]){
 		
-		System.out.println(isRotation("textw", "ttex"));
+		System.out.println(isRotation("text", "ttex"));
 	}
 }
